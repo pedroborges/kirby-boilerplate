@@ -14,3 +14,13 @@ const { mix } = require('laravel-mix')
 
 mix.js('resources/js/main.js', 'public/js')
    .sass('resources/sass/main.scss', 'public/css')
+   .options({
+     postCss: [
+       require('postcss-import'),
+       require('postcss-css-variables'),
+       require('postcss-conditionals'),
+       require('postcss-custom-media'),
+       require('css-mqpacker'),
+       require('autoprefixer')
+     ]
+   })

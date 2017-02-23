@@ -1,5 +1,11 @@
 <?php
 
+if (! file_exists(__DIR__ . DS . '.env')) {
+    throw new Exception('Copy the ".env.example" file and name it ".env".');
+}
+
+require __DIR__ . DS . '.env';
+
 $kirby = kirby();
 
 kirby()->roots()->index = __DIR__;

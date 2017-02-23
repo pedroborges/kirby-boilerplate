@@ -1,30 +1,89 @@
 <?php
 
 /*
+ * Site config
+ */
 
----------------------------------------
-License Setup
----------------------------------------
+c::set('url', $_ENV['SITE_URL']);
+c::set('ssl', $_ENV['SITE_SSL']);
+c::set('debug', $_ENV['SITE_DEBUG']);
+c::set('environment', $_ENV['SITE_ENVIRONMENT']);
 
-Please add your license key, which you've received
-via email after purchasing Kirby on http://getkirby.com/buy
+c::set('error', 'error');
+c::set('home', 'home');
 
-It is not permitted to run a public website without a
-valid license key. Please read the End User License Agreement
-for more information: http://getkirby.com/license
+// c::set('date.handler', 'date');
+// c::set('locale', [
+//     LC_COLLATE  => 'en_US.utf8',
+//     LC_MONETARY => 'en_US.utf8',
+//     LC_NUMERIC  => 'en_US.utf8',
+//     LC_TIME     => 'en_US.utf8',
+//     LC_MESSAGES => 'en_US.utf8',
+//     LC_CTYPE    => 'en_US.utf8'
+// ]);
 
-*/
+c::set('cache', $_ENV['SITE_CACHE']);
+c::set('cache.driver', $_ENV['SITE_CACHE_DRIVER']);
+c::set('cache.autoupdate', false);
+c::set('cache.ignore', []);
+// c::set('cache.options', [
+//   'host'    => '127.0.0.1',
+//   'port'    => 11211,
+//   'prefix'  => null,
+// ]);
 
-c::set('license', 'put your license key here');
+
 
 /*
+ * Panel config
+ */
 
----------------------------------------
-Kirby Configuration
----------------------------------------
+c::set('panel.info.versions', $_ENV['PANEL_INFO']);
+c::set('panel.install', $_ENV['PANEL_INSTALL']);
+c::set('panel.language', 'en');
 
-By default you don't have to configure anything to
-make Kirby work. For more fine-grained configuration
-of the system, please check out http://getkirby.com/docs/advanced/options
 
-*/
+
+/*
+ * Plugins config
+ */
+
+c::set('cachebuster', $_ENV['CACHEBUSTER']);
+
+c::set('google.analytics', $_ENV['GOOGLE_ANALYTICS']);
+
+// Auto Git
+c::set('autogit.branch', $_ENV['AUTOGIT_BRANCH']);
+c::set('autogit.remote.name', $_ENV['AUTOGIT_REMOTE_NAME']);
+c::set('autogit.remote.branch', $_ENV['AUTOGIT_REMOTE_BRANCH']);
+c::set('autogit.webhook.secret', $_ENV['AUTOGIT_WEBHOOK_SECRET']);
+c::set('autogit.webhook.url', $_ENV['AUTOGIT_WEBHOOK_URL']);
+c::set('autogit.panel.user', true);
+c::set('autogit.user.name', 'Auto Git');
+c::set('autogit.user.email', 'autogit@localhost');
+c::set('autogit.widget', true);
+c::set('autogit.language', 'en');
+
+// Sitemap
+c::set('sitemap.include.invisible', false);
+c::set('sitemap.ignored.pages', [
+  site()->errorPage()
+]);
+c::set('sitemap.ignored.templates', []);
+c::set('sitemap.process', function($pages) {
+    return $pages->filter(function($page) {
+        if ($page->intendedTemplate() === 'post') {
+            return $page->date() < time();
+        }
+
+        return true;
+    });
+});
+
+
+
+/*
+ * Kirby license
+ */
+
+c::set('license', $_ENV['KIRBY_LICENSE']);

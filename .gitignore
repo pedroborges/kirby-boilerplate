@@ -1,5 +1,6 @@
 .DS_Store
 .env
+hot
 /node_modules
 /site/accounts
 /public/avatars/*

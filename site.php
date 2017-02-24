@@ -14,6 +14,9 @@ kirby()->urls()->index = url::base();
 kirby()->roots()->assets = kirby()->roots()->index() . DS . 'public';
 kirby()->urls()->assets = kirby()->urls()->index();
 
+kirby()->roots()->avatars = kirby()->roots()->assets() . DS . 'avatars';
+kirby()->urls()->avatars = kirby()->urls()->assets() . '/avatars';
+
 kirby()->urls()->content = kirby()->urls()->index();
 
 kirby()->roots()->thumbs = kirby()->roots()->assets() . DS . 'thumbs';

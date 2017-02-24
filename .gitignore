@@ -1,6 +1,7 @@
 .DS_Store
 .env
 hot
+mix-manifest.json
 /node_modules
 /site/accounts
 /public/avatars/*

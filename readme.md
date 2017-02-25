@@ -16,10 +16,14 @@ For improved security, I've opted to change the folder structure to keep only pu
 <details>
     <summary><strong>Show folder structure</strong> 👁</summary><p>
 
+    ├── accounts
+    ├── cache
+    ├── config
     ├── content
     ├── kirby
     ├── package.json
     ├── panel
+    ├── plugins
     ├── public
     │   ├── avatars
     │   ├── css
@@ -28,18 +32,16 @@ For improved security, I've opted to change the folder structure to keep only pu
     │   ├── index.php
     │   ├── js
     │   ├── robots.txt
-    │   └── thumbs
+    │   ├── thumbs
     ├── resources
     │   ├── js
-    │   └── sass
-    ├── site
-    │   ├── accounts
-    │   ├── blueprints
-    │   ├── cache
-    │   ├── config
-    │   ├── plugins
+    │   ├── sass
     │   ├── snippets
     │   └── templates
+    ├── site
+    │   ├── blueprints
+    │   ├── controllers
+    │   └── models
     ├── site.php
     ├── webpack.mix.js
     └── yarn.lock

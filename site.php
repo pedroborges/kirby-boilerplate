@@ -11,6 +11,14 @@ $kirby = kirby();
 kirby()->roots()->index = __DIR__;
 kirby()->urls()->index = url::base();
 
+kirby()->roots()->accounts = kirby()->roots()->index() . DS . 'accounts';
+kirby()->roots()->cache = kirby()->roots()->index() . DS . 'cache';
+kirby()->roots()->config = kirby()->roots()->index() . DS . 'config';
+kirby()->roots()->plugins = kirby()->roots()->index() . DS . 'plugins';
+
+kirby()->roots()->snippets = kirby()->roots()->index() . DS . 'resources' . DS . 'snippets';
+kirby()->roots()->templates = kirby()->roots()->index() . DS . 'resources' . DS . 'templates';
+
 kirby()->roots()->assets = kirby()->roots()->index() . DS . 'public';
 kirby()->urls()->assets = kirby()->urls()->index();
 

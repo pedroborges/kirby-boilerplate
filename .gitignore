@@ -3,6 +3,7 @@
 hot
 mix-manifest.json
 /node_modules
-/site/accounts
-/public/avatars/*
-/public/thumbs/*
+/accounts
+/cache
+/public/avatars
+/public/thumbs

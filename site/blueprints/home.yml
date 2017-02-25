@@ -1,30 +1,30 @@
 title:
-  en:           Page
-  pt_BR:        Página
+  en:           Home
+  pt_BR:        Página Inicial
 
 # Page options
-icon:           file-o        # Font Awesome icon: http://fontawesome.io/icons
+icon:           home          # Font Awesome icon: http://fontawesome.io/icons
 hide:           false         # Hide page from the panel
 preview:        page          # page, parent, first-child, last-child
 
 options:
-  delete:       true          # Allow/disallow to delete a page
+  delete:       false         # Allow/disallow to delete a page
   preview:      true          # Show/hide the preview button in the sidebar
-  status:       true          # Allow/disallow to change the status of a page
-  template:     true          # Allow/disallow to change the template of a page
+  status:       false         # Allow/disallow to change the status of a page
+  template:     false         # Allow/disallow to change the template of a page
   update:       true          # Prevent editing of a page for all editors
-  url:          true          # Allow/disallow to modify the URL of a page
+  url:          false         # Allow/disallow to modify the URL of a page
 
 
 # Subpages options
-pages:
-  add:          true          # Show/hide the add button
-  hide:         false         # Hide subpages
-  limit:        20            # Paginate displayed subpages
-  max:          null          # Maximum number of subpages
-  num:          null          # Numbering mode of visible subpages: default, zero and date
-  sort:         null          # Sort subpages by field
-  template:     default       # Restrict templates
+pages:          false
+  # add:          false         # Show/hide the add button
+  # hide:         true          # Hide subpages
+  # limit:        20            # Paginate displayed subpages
+  # max:          null          # Maximum number of subpages
+  # num:          null          # Numbering mode of visible subpages: default, zero and date
+  # sort:         null          # Sort subpages by field
+  # template:     default       # Restrict templates
 
 
 # Files options
@@ -51,8 +51,15 @@ fields:
       pt_BR:    Título
     type:       title
 
+  intro:
+    label:
+      en:       Intro
+      pt_BR:    Apresentação
+    type:       textarea
+    buttons:    false
+
   text:
     label:
-      en:       Text
+      en:       Texto
       pt_BR:    Conteúdo
     type:       textarea

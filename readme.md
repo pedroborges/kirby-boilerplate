@@ -1,6 +1,6 @@
 # Kirby Boilerplate
 
-Kirby CMS Boilerplate I've put together using my preferred technologies. Expect it to be opinionated!
+Kirby CMS Boilerplate I've put together using my preferred technologies.
 
 ## Technologies
 - [Kirby CMS](https://getkirby.com)
@@ -46,9 +46,11 @@ For improved security, I've opted to change the folder structure to keep only pu
 
 </p></details>
 
-The recommended Nginx configuration _(see below)_ ensures that user uploaded files to the `/content` folder publicly accessible as `/uploads`: `https://example.com/uploads/home/welcome.jpg` looks for the file `home/welcome.jpg` inside the `/content` directory.
+> Make sure your web server (Nginx, Apache, etc) is properly configured. Nginx sample configuration is available below.
 
 ## Installation
+
+### Kirby
 Use Kirby's [command line interface](https://github.com/getkirby/cli) to install Kirby and the Panel:
 
     $ kirby install:core
@@ -61,10 +63,12 @@ Use [Yarn](https://yarnpkg.com) to install the Javascript dependencies:
 
 > Alternatively you can run `npm install`.
 
+### Environment file
 Copy the `.env.example` file to `.env` and adjust the settings to your needs.
 
 > The `.env` file should remain out of version control as it may contain sensitive data such as API keys.
 
+### Nginx
 Next up, change your Nginx configuration to accomodate the new structure:
 
 <details>
@@ -164,10 +168,101 @@ Next up, change your Nginx configuration to accomodate the new structure:
 
 </p></details>
 
-The `^/uploads(/.*\.(jpe?g|gif|png|svg|pdf|mp3))$` rule includes only the most common file types on purpose. If your site requires other file types, just add them there to make them publicly available.
+This configuration ensures that user uploaded files on the `/content` folder are publicly accessible as `/uploads`: `https://example.com/uploads/home/welcome.jpg` will look for the `/home/welcome.jpg` file inside the `/content` directory.
+
+The `^/uploads(/.*\.(jpe?g|gif|png|svg|pdf|mp3))$` rule purposely includes only the most common file types. If your site requires other file types, just add them there to make them available as well.
+
+### Laravel Valet
+I use [Laravel Valet](https://laravel.com/docs/master/valet) on my local environment to easily serve my sites.
+
+> Valet is a Laravel development environment for Mac minimalists. No Vagrant, no /etc/hosts file. You can even share your sites publicly using local tunnels. _Yeah, we like it too._
+
+Laravel Valet ships ready to serve Kirby sites, but since our folder structure is a bit different, we need to add a custom Valet driver to `~/.valet/Drivers`:
+
+<details>
+    <summary><strong>Show `KirbyBoilerplateValetDriver.php`</strong> 👁</summary><p>
+
+```php
+<?php
+
+class KirbyBoilerplateValetDriver extends ValetDriver
+{
+    /**
+     * Determine if the driver serves the request.
+     *
+     * @param  string  $sitePath
+     * @param  string  $siteName
+     * @param  string  $uri
+     * @return void
+     */
+    public function serves($sitePath, $siteName, $uri)
+    {
+        return is_dir($sitePath.'/kirby') && is_dir($sitePath.'/public');
+    }
+
+    /**
+     * Determine if the incoming request is for a static file.
+     *
+     * @param  string  $sitePath
+     * @param  string  $siteName
+     * @param  string  $uri
+     * @return string|false
+     */
+    public function isStaticFile($sitePath, $siteName, $uri)
+    {
+        $contentUri = $uri;
+
+        if (strpos($uri, '/uploads/') === 0) {
+            $contentUri = substr($uri, 8);
+        }
+
+        if ($this->isActualFile($contentFilePath = $sitePath.'/content'.$contentUri)) {
+            return $contentFilePath;
+        }
+
+        if (strpos($uri, '/panel/') === 0) {
+            if ($this->isActualFile($panelFilePath = $sitePath.$uri)) {
+                return $panelFilePath;
+            }
+        }
+
+        if ($this->isActualFile($staticFilePath = $sitePath.'/public'.$uri)) {
+            return $staticFilePath;
+        }
+
+        return false;
+    }
+
+    /**
+     * Get the fully resolved path to the application's front controller.
+     *
+     * @param  string  $sitePath
+     * @param  string  $siteName
+     * @param  string  $uri
+     * @return string
+     */
+    public function frontControllerPath($sitePath, $siteName, $uri)
+    {
+        // Needed to force Kirby to use *.dev to generate its URLs...
+        $_SERVER['SERVER_NAME'] = $_SERVER['HTTP_HOST'];
+
+        if (preg_match('/^\/panel/', $uri)) {
+            $_SERVER['SCRIPT_NAME'] = '/panel/index.php';
+
+            return $sitePath.'/panel/index.php';
+        }
+
+        $_SERVER['SCRIPT_NAME'] = '/public/index.php';
+
+        return $sitePath.'/public/index.php';
+    }
+}
+```
+
+</p></details>
 
 ## Usage
-Laravel Mix is a configuration layer on top of Webpack, so to run your Mix tasks you only need to execute one of the NPM scripts that is included on the package.json file.
+Laravel Mix is a configuration layer on top of Webpack, so to run your Mix tasks you only need to execute one of the NPM scripts that is included on the `package.json` file.
 
 Run all Mix tasks once:
 

@@ -17,7 +17,7 @@ kirby()->urls()->assets = kirby()->urls()->index();
 kirby()->roots()->avatars = kirby()->roots()->assets() . DS . 'avatars';
 kirby()->urls()->avatars = kirby()->urls()->assets() . '/avatars';
 
-kirby()->urls()->content = kirby()->urls()->index();
+kirby()->urls()->content = kirby()->urls()->index() . '/uploads';
 
 kirby()->roots()->thumbs = kirby()->roots()->assets() . DS . 'thumbs';
 kirby()->urls()->thumbs = kirby()->urls()->assets() . '/thumbs';

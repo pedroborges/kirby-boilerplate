@@ -296,6 +296,9 @@ Run all Mix tasks and minify output:
 
     $ kirby plugin:install pedroborges/kirby-xml-sitemap
 
+## Change Log
+All notable changes to this project will be documented at: <https://github.com/pedroborges/kirby-boilerplate/blob/master/changelog.md>
+
 ## License
 Kirby Boilerplate is open-sourced software licensed under the [MIT license](http://www.opensource.org/licenses/mit-license.php).
 

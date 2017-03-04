@@ -17,7 +17,7 @@ kirby()->roots()->config = kirby()->roots()->index() . DS . 'config';
 kirby()->roots()->plugins = kirby()->roots()->index() . DS . 'plugins';
 
 kirby()->roots()->snippets = kirby()->roots()->index() . DS . 'resources' . DS . 'snippets';
-kirby()->roots()->templates = kirby()->roots()->index() . DS . 'resources' . DS . 'templates';
+kirby()->roots()->templates = kirby()->roots()->index() . DS . 'resources' . DS . 'views';
 
 kirby()->roots()->assets = kirby()->roots()->index() . DS . 'public';
 kirby()->urls()->assets = kirby()->urls()->index();

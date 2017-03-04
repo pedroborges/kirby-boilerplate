@@ -35,12 +35,6 @@ fields:
       pt_BR:    Título
     type:       title
 
-  keywords:
-    label:
-      en:       Keywords
-      pt_BR:    Palavras-chave
-    type:       text
-
   description:
     label:
       en:       Description

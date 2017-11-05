@@ -8,16 +8,11 @@
   "config": {
     "webpack": "node_modules/laravel-mix/setup/webpack.config.js"
   },
-  "dependencies": {
-    "autoprefixer": "^6.7.5",
-    "css-mqpacker": "^5.0.1",
-    "postcss-conditionals": "^2.1.0",
-    "postcss-css-variables": "^0.6.0",
-    "postcss-custom-media": "^5.0.1",
-    "postcss-import": "^9.1.0",
-    "tachyons": "^4.6.2"
-  },
   "devDependencies": {
-    "laravel-mix": "^0.8.2"
+    "autoprefixer": "^7.1.6",
+    "laravel-mix": "^1.5.1",
+    "purify-css": "^1.2.5",
+    "purifycss-webpack": "^0.7.0",
+    "tailwindcss": "^0.1.3"
   }
 }

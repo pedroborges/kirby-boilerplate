@@ -6,7 +6,7 @@
     {!! $page->metaTags() !!}
     {!! css('css/main.css') !!}
 </head>
-<body class="mw7 center sans-serif mid-gray bg-near-white">
+<body class="max-w-md mx-auto font-sans text-darkest bg-lightest-grey">
     <a href="#main" class="clip">skip to content</a>
 
     <header role="banner">

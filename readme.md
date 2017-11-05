@@ -4,11 +4,12 @@ Kirby CMS Boilerplate I've put together using my preferred technologies.
 
 ## Technologies
 - [Kirby CMS](https://getkirby.com)
+- [Laravel Blade](https://laravel.com/docs/master/blade)
 - [Laravel Mix](https://github.com/JeffreyWay/laravel-mix/tree/master/docs#readme)
 - [Yarn](https://yarnpkg.com)
 - [Webpack](https://webpack.js.org)
 - [PostCSS](http://postcss.org)
-- [Tachyons CSS](http://tachyons.io)
+- [Tailwind CSS](https://tailwindcss.com)
 
 ## Folder Structure
 For improved security, I've opted to change the folder structure to keep only public assets on the web root, called `/public`. All other important files such as `/kirby`, `/content`, `/site`, `.env`, source and build files, etc, remain a outside the web root.
@@ -35,7 +36,7 @@ For improved security, I've opted to change the folder structure to keep only pu
     │   ├── thumbs
     ├── resources
     │   ├── js
-    │   ├── sass
+    │   ├── css
     │   ├── snippets
     │   └── templates
     ├── site
@@ -53,11 +54,13 @@ For improved security, I've opted to change the folder structure to keep only pu
 ## Installation
 
 ### Kirby
-Use Kirby's [command line interface](https://github.com/getkirby/cli) to install Kirby and the Panel:
+Use Kirby's [command line interface](https://github.com/getkirby/cli) to install Kirby, the Panel, and Laravel Blade:
 
     $ kirby install:core
 
     $ kirby install:panel
+
+    $ kirby plugin:install pedroborges/kirby-blade-template
 
 Use [Yarn](https://yarnpkg.com) to install the Javascript dependencies:
 

@@ -13,7 +13,7 @@
     <script>window.lazySizesConfig = window.lazySizesConfig || {};</script>
     <script src="{{ asset('assets/js/lazysizes.min.js') }}" async></script>
 </head>
-<body class="max-w-md mx-auto font-sans text-darkest bg-lightest-grey">
+<body class="max-w-md mx-auto p-4 font-sans text-darkest bg-lightest-grey">
     <a href="#main" class="clip">skip to content</a>
 
     <header role="banner">
@@ -24,7 +24,7 @@
         @include('partials.menu')
     </header>
 
-    <main id="main" role="main">
+    <main id="main" class="content" role="main">
         <h1>@yield('title')</h1>
 
         @yield('content')

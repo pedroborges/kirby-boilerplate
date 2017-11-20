@@ -1,45 +1,77 @@
-/**
- * This injects Tailwind's base styles, which is a combination of
- * Normalize.css and some additional base styles.
- *
- * You can see the styles here:
- * https://github.com/tailwindcss/tailwindcss/blob/master/css/preflight.css
+/*
+ * Tailwind Preflight
  */
- @tailwind preflight;
 
- /**
-  * Here you would add any of your custom component classes; stuff that you'd
-  * want loaded *before* the utilities so that the utilities could still
-  * override them.
-  *
-  * Example:
-  *
-  * .btn { ... }
-  * .form-input { ... }
-  *
-  * Or if using a preprocessor:
-  *
-  * @import "components/buttons";
-  * @import "components/forms";
-  */
+@tailwind preflight;
 
- /**
-  * This injects all of Tailwind's utility classes, generated based on your
-  * config file.
-  */
- @tailwind utilities;
 
- /**
-  * Here you would add any custom utilities you need that don't come out of the
-  * box with Tailwind.
-  *
-  * Example :
-  *
-  * .bg-pattern-graph-paper { ... }
-  * .skew-45 { ... }
-  *
-  * Or if using a preprocessor..
-  *
-  * @import "utilities/backgrond-patterns";
-  * @import "utilities/skew-transforms";
-  */
+
+/*
+ * Custom Styles
+ */
+
+html {
+  font-size: 16px;
+}
+
+a {
+  @apply .text-blue .no-underline;
+}
+
+svg {
+  fill: currentColor;
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6,
+.content p,
+.content ul,
+.content ol,
+.content figure,
+.content pre {
+  line-height: inherit;
+  @apply .mb-4;
+}
+
+.content a:hover,
+.content a:focus,
+.content a:active {
+  @apply .border-b-2 .border-blue;
+}
+
+.clip {
+  position: fixed !important;
+  clip: rect(1px 1px 1px 1px);
+}
+
+.lazyload {
+  opacity: 0;
+}
+
+.lazyloaded {
+  opacity: 1;
+  transition: opacity .2s;
+}
+
+.uniform__potty {
+  position: absolute;
+  left: -9999px;
+}
+
+
+
+/*
+ * Tailwind Utilities
+ */
+
+@tailwind utilities;
+
+
+
+/*
+ * Custom Utilities
+ */

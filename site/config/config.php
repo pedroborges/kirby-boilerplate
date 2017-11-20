@@ -35,6 +35,17 @@ c::set('cache.ignore', []);
 
 
 /*
+ * Email config
+ */
+c::set('email.service', $_ENV['EMAIL_SERVICE']);
+c::set('email.from', $_ENV['EMAIL_FROM']);
+c::set('email.to', $_ENV['EMAIL_TO']);
+c::set('email.subject', 'Message sent from website');
+c::set('email.options', $_ENV['EMAIL_OPTIONS']);
+
+
+
+/*
  * Panel config
  */
 

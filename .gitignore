@@ -1,9 +1,10 @@
 .DS_Store
 .env
 hot
+*.log
 mix-manifest.json
 /node_modules
 /accounts
 /cache
-/public/avatars
-/public/thumbs
+/assets/avatars
+/assets/thumbs

@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {!! $page->metaTags() !!}
-    {!! css('css/main.css') !!}
+    {!! css('assets/css/main.css') !!}
 </head>
 <body class="max-w-md mx-auto font-sans text-darkest bg-lightest-grey">
     <a href="#main" class="clip">skip to content</a>
 
     <header role="banner">
         <a href="<?= $site->url() ?>" title="<?= $site->title()->html() ?>">
-            <img src="/images/logo.svg" alt="<?= $site->title()->html() ?>">
+            <img src="{{ url('assets/images/logo.svg') }}" alt="<?= $site->title()->html() ?>">
         </a>
 
         @include('partials.menu')

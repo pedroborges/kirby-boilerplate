@@ -15,6 +15,7 @@
     "autoprefixer": "^7.1.6",
     "glob-all": "^3.1.0",
     "laravel-mix": "^1.5.1",
+    "lazysizes": "^4.0.1",
     "purgecss-webpack-plugin": "^0.11.0"
   }
 }

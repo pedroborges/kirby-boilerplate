@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {!! $page->metaTags() !!}
+    <script>window.lazySizesConfig = window.lazySizesConfig || {};</script>
+    <script src="{{ asset('assets/js/lazysizes.min.js') }}" async></script>
 </head>
 <body class="max-w-md mx-auto font-sans text-darkest bg-lightest-grey">
     <a href="#main" class="clip">skip to content</a>

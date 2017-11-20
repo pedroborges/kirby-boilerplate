@@ -75,6 +75,7 @@ c::set('autogit.user.email', 'autogit@localhost');
 c::set('autogit.widget', true);
 c::set('autogit.language', 'en');
 
+require(__DIR__ . DS . 'meta-tags.php');
 require(__DIR__ . DS . 'xml-sitemap.php');
 
 

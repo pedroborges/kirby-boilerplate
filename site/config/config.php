@@ -75,21 +75,7 @@ c::set('autogit.user.email', 'autogit@localhost');
 c::set('autogit.widget', true);
 c::set('autogit.language', 'en');
 
-// Sitemap
-c::set('sitemap.include.invisible', false);
-c::set('sitemap.ignored.pages', [
-  site()->errorPage()
-]);
-c::set('sitemap.ignored.templates', []);
-c::set('sitemap.process', function($pages) {
-    return $pages->filter(function($page) {
-        if ($page->intendedTemplate() === 'post') {
-            return $page->date() < time();
-        }
-
-        return true;
-    });
-});
+require(__DIR__ . DS . 'xml-sitemap.php');
 
 
 

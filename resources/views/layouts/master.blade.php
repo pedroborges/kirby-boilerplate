@@ -3,6 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{--  <link href="//fonts.googleapis.com" rel="dns-prefetch">  --}}
+    {{--  <link href="//fonts.gstatic.com" rel="dns-prefetch">  --}}
+    <link href="{{ asset('assets/css/main.css') }}" rel="preload" as="style">
+    <link href="{{ url('assets/images/logo.svg') }}" rel="preload" as="image">
+    <link href="{{ asset('assets/js/lazysizes.min.js') }}" rel="preload" as="script">
+    {{--  <link href="//fonts.gstatic.com/*.woff2" rel="preload" as="font" crossorigin="crossorigin" type="font/woff2">  --}}
     {!! $page->metaTags() !!}
     <script>window.lazySizesConfig = window.lazySizesConfig || {};</script>
     <script src="{{ asset('assets/js/lazysizes.min.js') }}" async></script>

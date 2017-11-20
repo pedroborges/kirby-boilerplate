@@ -24,6 +24,6 @@ mix.options({
 
 mix.js('resources/js/main.js', 'public/js')
   .postCss('resources/css/main.css', 'public/css', [
-    require('tailwindcss')('./tailwind.js'),
+    require('tailwindcss')('./tailwind.css.js'),
     require('autoprefixer')
   ])

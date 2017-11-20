@@ -24,7 +24,7 @@ View the full documentation at https://tailwindcss.com.
 |
 */
 
-var defaultConfig = require('tailwindcss').defaultConfig()
+var defaultConfig = require('tailwindcss/defaultConfig')()
 
 
 /*
@@ -204,6 +204,7 @@ module.exports = {
       'Fira Sans',
       'Droid Sans',
       'Helvetica Neue',
+      'sans-serif',
     ],
     'serif': [
       'Constantia',
@@ -409,16 +410,19 @@ module.exports = {
   | is provided, it will be made available as the non-suffixed `.rounded`
   | utility.
   |
-  | Class name: .rounded{-radius?}
+  | If your scale includes a `0` value to reset already rounded corners, it's
+  | a good idea to put it first so other values are able to override it.
+  |
+  | Class name: .rounded{-side?}{-size?}
   |
   */
 
   borderRadius: {
-    default: '.25rem',
+    'none': '0',
     'sm': '.125rem',
+    default: '.25rem',
     'lg': '.5rem',
     'full': '9999px',
-    'none': '0',
   },
 
 
@@ -643,6 +647,7 @@ module.exports = {
   */
 
   margin: {
+    'auto': 'auto',
     'px': '1px',
     '0': '0',
     '1': '0.25rem',
@@ -720,13 +725,13 @@ module.exports = {
   */
 
   zIndex: {
+    'auto': 'auto',
     '0': 0,
     '10': 10,
     '20': 20,
     '30': 30,
     '40': 40,
     '50': 50,
-    'auto': 'auto',
   },
 
 
@@ -754,17 +759,17 @@ module.exports = {
 
   /*
   |-----------------------------------------------------------------------------
-  | Packages
+  | Options                  https://tailwindcss.com/docs/configuration#options
   |-----------------------------------------------------------------------------
   |
-  | Here is where you can define the configuration for any Tailwind packages
-  | you're using. These can be utility packs, component bundles, or even
-  | complete themes. You'll want to reference each package's
-  | documentation for a list of settings available for it.
+  | Here is where you can set your Tailwind configuration options. For more
+  | details about these options, visit the configuration options documentation.
   |
   */
 
-  packages: {
+  options: {
+    prefix: '',
+    important: false,
   },
 
 }

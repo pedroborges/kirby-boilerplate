@@ -23,5 +23,5 @@ kirby()->urls()->assets = kirby()->urls()->index() . '/assets';
 kirby()->roots()->avatars = kirby()->roots()->assets() . DS . 'avatars';
 kirby()->urls()->avatars = kirby()->urls()->assets() . '/avatars';
 
-kirby()->roots()->thumbs = kirby()->roots()->assets() . DS . 'thumbs';
-kirby()->urls()->thumbs = kirby()->urls()->assets() . '/thumbs';
+kirby()->roots()->thumbs = kirby()->roots()->assets() . DS . 'media';
+kirby()->urls()->thumbs = kirby()->urls()->assets() . '/media';

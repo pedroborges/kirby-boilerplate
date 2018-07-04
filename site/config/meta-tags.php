@@ -4,6 +4,8 @@
  * Meta Tag plugin config
  */
 
+c::set('meta-tags.order', ['link', 'title', 'meta', 'og', 'twitter']);
+
 c::set('meta-tags.default', function(Page $page, Site $site) {
     $title = $page->isHomePage()
                 ? $site->title()
@@ -18,6 +20,10 @@ c::set('meta-tags.default', function(Page $page, Site $site) {
             'description' => $description
         ],
         'link' => [
+            'dns-prefetch' => [
+                ['href' => 'https://fonts.googleapis.com'],
+                ['href' => 'https://fonts.gstatic.com'],
+            ],
             'canonical' => $page->url(),
             'icon' => [
                 ['href' => url('assets/images/icons/favicon-16.png'), 'sizes' => '16x16', 'type' =>'image/png'],

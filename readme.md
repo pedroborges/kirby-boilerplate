@@ -7,7 +7,6 @@ Kirby CMS Boilerplate I've put together using my preferred technologies.
 - [Laravel Blade](https://laravel.com/docs/master/blade)
 - [Laravel Mix](https://github.com/JeffreyWay/laravel-mix/tree/master/docs#readme)
 - [Yarn](https://yarnpkg.com)
-- [Webpack](https://webpack.js.org)
 - [PostCSS](http://postcss.org)
 - [Tailwind CSS](https://tailwindcss.com)
 
@@ -287,13 +286,17 @@ Run all Mix tasks and minify output:
 
     $ kirby plugin:install pedroborges/kirby-autogit
 
-### Cachebuster
+### Asset Cachebuster
 
-    $ kirby plugin:install cachebuster-plugin
+    $ kirby plugin:install pedroborges/kirby-asset-cachebuster
 
 ### Google Analytics
 
     $ kirby plugin:install pedroborges/kirby-google-analytics
+
+### Meta Tags
+
+    $ kirby plugin:install pedroborges/kirby-meta-tags
 
 ### Sitemap
 
@@ -305,4 +308,4 @@ All notable changes to this project will be documented at: <https://github.com/p
 ## License
 Kirby Boilerplate is open-sourced software licensed under the [MIT license](http://www.opensource.org/licenses/mit-license.php).
 
-Copyright © 2017 Pedro Borges <oi@pedroborg.es>
+Copyright © 2018 Pedro Borges <oi@pedroborg.es>
